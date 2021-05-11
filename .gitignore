@@ -1,0 +1,3 @@
+ignored.txt
+**.terraform/
+*.pem
