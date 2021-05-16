@@ -3,6 +3,7 @@ resource "aws_instance" "application_server" {
   instance_type   = "t2.micro"
   key_name        = var.key_pair_name
   user_data       = file("../../ec2/userdata.sh")
+  iam_instance_profile = "${aws_iam_instance_profile.test_profile.name}"
   security_groups = ["${aws_security_group.application_server_ec2_instance.name}"]
 
   tags = {

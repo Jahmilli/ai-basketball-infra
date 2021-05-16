@@ -1,0 +1,8 @@
+[Service]
+WorkingDirectory=/root/ai-basketball-ws/
+ExecStart=/root/.nvm/versions/node/v12.18.0/bin/node /root/ai-basketball-ws/dist/index.js
+Restart=always
+Environment=LOG_LEVEL=debug POSTGRESQL_USER=postgres POSTGRESQL_PASSWORD=password POSTGRESQL_DATABASE=mydb
+
+[Install]
+WantedBy=multi-user.target

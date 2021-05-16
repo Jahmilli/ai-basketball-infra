@@ -37,3 +37,14 @@ resource "aws_security_group_rule" "application_server_ec2_egress_all" {
 
   security_group_id = aws_security_group.application_server_ec2_instance.id
 }
+
+# Database Rules
+resource "aws_security_group_rule" "database_ingress_application_psql" {
+  type        = "ingress"
+  from_port   = 5432
+  to_port     = 5432
+  protocol    = "tcp"
+  source_security_group_id = aws_security_group.application_server_ec2_instance.id
+
+  security_group_id = aws_security_group.application_database.id
+}
