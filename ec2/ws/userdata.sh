@@ -7,8 +7,9 @@ amazon-linux-extras install nginx1 -y
 
 aws s3 cp s3://ai-basketball-applications/ai-basketball-ws.zip .
 unzip ai-basketball-ws.zip
+aws s3 cp s3://ai-basketball-applications/ai-basketball-analytics.zip .
+unzip ai-basketball-analytics.zip
 
-# LOG_LEVEL=debug POSTGRESQL_USER=postgres POSTGRESQL_PASSWORD=password POSTGRESQL_DATABASE=mydb node /root/ai-basketball-ws/dist/index.js
 amazon-linux-extras install postgresql10
 
 # Update /etc/nginx/nginx.conf (Note, this should be backed up originally and also point to other configs)
@@ -33,3 +34,7 @@ nvm install 7
 # vi /etc/systemd/system/ai-basketball-ws.service
 systemctl enable ai-basketball-ws
 systemctl start ai-basketball-ws
+
+# vi /etc/systemd/system/ai-basketball-analytics.service
+systemctl enable ai-basketball-analytics
+systemctl start ai-basketball-analytics
