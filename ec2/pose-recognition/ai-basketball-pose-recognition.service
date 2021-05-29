@@ -1,0 +1,8 @@
+[Service]
+WorkingDirectory=/root/ai-basketball-pose-recognition/
+ExecStart=/root/.nvm/versions/node/v12.18.0/bin/node /root/ai-basketball-pose-recognition/dist/index.js
+Restart=always
+Environment=LOG_LEVEL=debug
+
+[Install]
+WantedBy=multi-user.target
